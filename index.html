@@ -690,9 +690,9 @@
                     pickInfo = `${b.tag} pick, ${a.tag} ${side}`;
                     pickInfoHTML = `<span class="team-b">${b.tag}</span> pick, <span class="team-a">${a.tag}</span> ${side}`;
                 } else {
-                    // Decider, side select = Team A's side
-                    pickInfo = `DECIDER, ${a.tag} ${side}`;
-                    pickInfoHTML = `DECIDER, <span class="team-a">${a.tag}</span> ${side}`;
+                    // Decider, side select = Team B's side
+                    pickInfo = `DECIDER, ${b.tag} ${side}`;
+                    pickInfoHTML = `DECIDER, <span class="team-b">${b.tag}</span> ${side}`;
                 }
 
                 mapParts.push(`${mapName} (${pickInfo})`);
@@ -726,5 +726,6 @@
         setupCopy(copyBtn2, outputCard2);
     </script>
 </body>
+
 
 </html>
