@@ -603,8 +603,8 @@
                 // Map select
                 const mapOpts = MAPS.map(m => `<option value="${m}">${m}</option>`).join("");
 
-                // Side select (which team starts on which side — the non-picking team's side for picks, one team for decider)
-                const sideLabel = slot.type === "DECIDER" ? "Side (Team B)" : "Opponent side";
+                // Side select (which team starts on which side - the non-picking team's side for picks, one team for decider)
+                const sideLabel = slot.type === "DECIDER" ? "Side (Team A)" : "Opponent side";
 
                 row.innerHTML = `
           <div class="map-num ${typeClass}">${slot.label} · ${typeLabel}</div>
@@ -689,9 +689,9 @@
                     pickInfo = `${b.tag} pick, ${a.tag} ${side}`;
                     pickInfoHTML = `<span class="team-b">${b.tag}</span> pick, <span class="team-a">${a.tag}</span> ${side}`;
                 } else {
-                    // Decider, side select = Team B's side
-                    pickInfo = `DECIDER, ${b.tag} ${side}`;
-                    pickInfoHTML = `DECIDER, <span class="team-b">${b.tag}</span> ${side}`;
+                    // Decider, side select = Team A's side
+                    pickInfo = `DECIDER, ${a.tag} ${side}`;
+                    pickInfoHTML = `DECIDER, <span class="team-a">${a.tag}</span> ${side}`;
                 }
 
                 mapParts.push(`${mapName} (${pickInfo})`);
