@@ -533,16 +533,20 @@
 
         // ---- POPULATE TEAM SELECTS ----
         function populateSelect(selectEl) {
-            const regions = [...new Set(teams.map(t => t.region))];
+            const regions = [...new Set(teams.map(t => t.region))]
+                .sort((a, b) => a.localeCompare(b));
             regions.forEach(region => {
                 const group = document.createElement("optgroup");
                 group.label = region;
-                teams.filter(t => t.region === region).forEach(t => {
-                    const opt = document.createElement("option");
-                    opt.value = JSON.stringify(t);
-                    opt.textContent = t.name;
-                    group.appendChild(opt);
-                });
+                teams
+                    .filter(t => t.region === region)
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .forEach(t => {
+                        const opt = document.createElement("option");
+                        opt.value = JSON.stringify(t);
+                        opt.textContent = t.name;
+                        group.appendChild(opt);
+                    });
                 selectEl.appendChild(group);
             });
         }
